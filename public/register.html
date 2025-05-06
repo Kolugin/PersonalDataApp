@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Регистрация</h2>
+    <form id="register-form">
+        <label for="username">Логин:</label>
+        <input type="text" id="username" required>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" required>
+
+        <label for="confirm-password">Подтвердите пароль:</label>
+        <input type="password" id="confirm-password" required>
+
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    
+    <p id="message"></p>
+
+    <script src="/scripts/scriptRegister.js"></script>
+</body>
+</html>

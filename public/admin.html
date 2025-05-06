@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Панель администратора</h2>
+        <button onclick="logout()">Выход</button>
+    </header>
+
+    <main>
+        <section class="controls">
+            <button onclick="backupData()">Сделать бэкап</button>
+            <button onclick="removeDuplicates()">Удалить дубликаты</button>
+            <button onclick="viewUsers()">Просмотр пользователей</button>
+            <button onclick="viewLogs()">Просмотреть логи</button>
+            <button onclick="showCreateUserForm()">Создать пользователя</button>
+            <button onclick="fetchServerStats()">Показать статистику сервера</button>
+        </section>
+
+        <section id="stats-container" class="hidden">
+            <h3>Статистика сервера</h3>
+            <p>Для просмотра монитора статистики перейдите на /status.html</p>
+            <!-- Здесь будут динамически добавляться данные -->
+        </section>
+
+        <section id="create-user-form" class="hidden">
+            <h3>Создать пользователя</h3>
+            <form id="create-user">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" required>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Создать</button>
+            </form>
+        </section>
+
+        <section id="users-container" class="hidden">
+            <h3>Список пользователей</h3>
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя пользователя</th>
+                        <th>Роль</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Пользователи будут добавлены сюда -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="log-container" class="hidden">
+            <h3>Логи</h3>
+            <table id="logs-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Пользователь</th>
+                        <th>Действие</th>
+                        <th>Время</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Логи будут добавлены сюда -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="/scripts/scriptAdmin.js"></script>
+</body>
+</html>

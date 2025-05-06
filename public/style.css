@@ -1,0 +1,654 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: 100vh;
+    text-align: center;
+
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h2 {
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+button.delete-btn {
+    background: #dc3545;
+}
+
+button.delete-btn:hover {
+    background: #a71d2a;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Форма создания пользователя */
+#create-user-form {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 1200px;
+    text-align: left;
+}
+
+#create-user-form h3 {
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+#create-user-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#create-user-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Форма добавления данных */
+#add-form {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: none;
+    /* Скрыта по умолчанию */
+}
+
+#add-form h3 {
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+#add-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#add-form input[type="text"],
+#add-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#add-form input[type="text"]:focus,
+#add-form select:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#add-form button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#add-form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Общие стили для таблиц */
+table {
+    width: 90%;
+    /* Ширина таблицы */
+    margin: 20px auto;
+    /* Центрирование и отступы */
+    border-collapse: collapse;
+    /* Убираем двойные границы */
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Добавляем тень */
+    border-radius: 8px;
+    /* Закругленные углы */
+    overflow: hidden;
+    /* Скрываем лишние элементы при закруглении */
+}
+
+/* Стили для заголовков таблиц */
+thead {
+    background-color: #007BFF;
+    /* Синий фон для заголовков */
+    color: white;
+    /* Белый текст */
+}
+
+th,
+td {
+    padding: 12px 15px;
+    /* Отступы внутри ячеек */
+    text-align: left;
+    /* Выравнивание по левому краю */
+    border-bottom: 1px solid #ddd;
+    /* Горизонтальная линия между строками */
+}
+
+/* Стили для четных строк */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+    /* Серый фон для четных строк */
+}
+
+/* Стили для нечетных строк */
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+    /* Белый фон для нечетных строк */
+}
+
+/* При наведении на строку */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    /* Изменение фона при наведении */
+}
+
+/* Стили для столбца "ID" */
+th:first-child,
+td:first-child {
+    width: 5%;
+    /* Уменьшаем ширину столбца ID */
+    text-align: center;
+    /* Центрируем текст */
+}
+
+/* Стили для столбца "Действия" (только в режиме редактирования) */
+th:last-child,
+td:last-child {
+    width: 15%;
+    /* Устанавливаем ширину для столбца "Действия" */
+    text-align: center;
+    /* Центрируем содержимое */
+}
+
+/* Стили для кнопок в таблице */
+td button {
+    background-color: #28a745;
+    /* Зеленый цвет для кнопок */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Плавный переход цвета */
+}
+
+td button:hover {
+    background-color: #218838;
+    /* Темнее зеленый при наведении */
+}
+
+/* Стили для кнопки "Удалить" */
+td button.delete-btn {
+    background-color: #dc3545;
+    /* Красный цвет для кнопки удаления */
+}
+
+td button.delete-btn:hover {
+    background-color: #a71d2a;
+    /* Темнее красный при наведении */
+}
+
+/* Стили для контейнера входа */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Заголовок формы входа */
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+/* Форма входа */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Отступ между элементами */
+}
+
+/* Входные поля */
+#login-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#login-form input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Кнопка "Войти" */
+#login-form button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+#login-form button:hover {
+    background: #0056b3;
+}
+
+/* Сообщение об ошибке или успехе */
+#message {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #dc3545;
+    /* Красный цвет для ошибок */
+}
+
+/* Стили для формы редактирования данных */
+#data-table-edit input[type="text"],
+#data-table-edit select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+#message.success {
+    color: #28a745;
+    /* Зеленый цвет для успешных сообщений */
+}
+
+/* Форма регистрации */
+#register-form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+    /* Горизонтальное центрирование */
+    display: flex;
+    /* Используем flexbox для вертикального центрирования */
+    flex-direction: column;
+    /* Элементы внутри формы будут расположены в столбец */
+    align-items: flex-start;
+    /* Выравниваем элементы по левому краю внутри формы */
+}
+
+/* Лейблы */
+#register-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Поля ввода */
+#register-form input[type="text"],
+#register-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Изменение цвета границы при фокусе */
+#register-form input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Кнопка "Зарегистрироваться" */
+#register-form button[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Изменение цвета кнопки при наведении */
+#register-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#stats-container {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#stats-container h3 {
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+#stats-container p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+#stats-container p strong {
+    color: #495057;
+}
+
+#stats-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#stats-container th,
+#stats-container td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#stats-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#stats-container tr:hover {
+    background-color: #f1f1f1;
+}
+
+#stats-container thead {
+    background-color: #007BFF;
+    color: white;
+}
+/* Стили для формы загрузки файла */
+#upload-file-form {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Выравнивание элементов по левому краю */
+}
+
+#upload-file-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#upload-file-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+#upload-file-form button[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#upload-file-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Стили для контейнера файлов */
+#files-container {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Выравнивание элементов по левому краю */
+    display: none; /* Скрыто по умолчанию */
+}
+
+#files-container h3 {
+    margin-bottom: 15px;
+    color: #007BFF; /* Синий цвет заголовка */
+}
+
+/* Стили для таблицы файлов */
+#files-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#files-table thead {
+    background-color: #007BFF;
+    color: white;
+}
+
+#files-table th, #files-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#files-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#files-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Стили для столбца "Действия" */
+#files-table td:last-child {
+    text-align: center; /* Центрируем кнопки */
+}
+
+#files-table button {
+    background-color: #28a745; /* Зеленый цвет для кнопок */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+#files-table button:hover {
+    background-color: #218838;
+}
+
+#files-table button.delete-btn {
+    background-color: #dc3545; /* Красный цвет для кнопки удаления */
+}
+
+#files-table button.delete-btn:hover {
+    background-color: #a71d2a;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+
+    .login-container {
+        margin: 50px auto;
+        /* Уменьшаем отступ сверху на мобильных устройствах */
+        padding: 15px;
+        /* Уменьшаем внутренний отступ */
+    }
+
+    #login-form input {
+        padding: 10px;
+        /* Уменьшаем отступы в полях ввода */
+        font-size: 0.9rem;
+        /* Уменьшаем размер шрифта */
+    }
+
+    #login-form button {
+        padding: 10px;
+        /* Уменьшаем отступы в кнопке */
+        font-size: 0.9rem;
+        /* Уменьшаем размер шрифта */
+    }
+
+    #register-form {
+        padding: 20px;
+    }
+
+    #register-form input[type="text"],
+    #register-form input[type="password"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    #register-form button[type="submit"] {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    #stats-container {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    #stats-container h3 {
+        font-size: 1.2rem;
+    }
+
+    #stats-container p {
+        margin: 3px 0;
+    }
+    #upload-file-form {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    #files-table {
+        font-size: 0.9rem;
+    }
+
+    #files-table th, #files-table td {
+        padding: 8px 10px;
+    }
+}
